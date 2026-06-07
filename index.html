@@ -9,21 +9,9 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     
     <style>
-        :root {
-            --bg-dark: #0f172a;
-            --text-main: #f8fafc;
-            --text-muted: #cbd5e1;
-            --accent-gold: #d4af37;
-            --wa-green: #25D366;
-        }
+        :root { --bg-dark: #0f172a; --text-main: #f8fafc; --text-muted: #cbd5e1; --accent-gold: #d4af37; --wa-green: #25D366; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
         .text-center { text-align: center; }
@@ -31,38 +19,22 @@
         .mb-8 { margin-bottom: 2rem; }
         .text-gold { color: var(--accent-gold); }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        
         h1 { font-size: 2.5rem; line-height: 1.2; font-weight: 800; }
         h2 { font-size: 2rem; font-weight: 700; border-bottom: 2px solid var(--accent-gold); display: inline-block; padding-bottom: 0.5rem; }
         h3 { font-size: 1.5rem; font-weight: 600; color: var(--accent-gold); }
         p { margin-bottom: 1rem; font-size: 1.1rem; }
-        
         .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
         .hero::after { content: ''; position: absolute; inset: 0; background: rgba(15, 23, 42, 0.7); z-index: 1; }
         .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; will-change: transform; }
         .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 2rem; }
-        
         .lazy-section { content-visibility: auto; contain-intrinsic-size: 1px 1000px; }
-        
         .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; overflow: hidden; transition: transform 0.3s; }
         .card:hover { transform: translateY(-5px); }
         .card img { width: 100%; height: 250px; object-fit: cover; }
         .card-body { padding: 1.5rem; }
-        
         .aeo-block { background: #1e293b; border-left: 4px solid var(--accent-gold); padding: 1.5rem; margin-top: 2rem; }
-        
-        .btn-wa {
-            position: fixed; bottom: 20px; right: 20px; background: var(--wa-green); color: white;
-            padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: bold;
-            display: flex; align-items: center; gap: 0.5rem; z-index: 999; box-shadow: 0 4px 15px rgba(37,211,102,0.4);
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
+        .btn-wa { position: fixed; bottom: 20px; right: 20px; background: var(--wa-green); color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; z-index: 999; box-shadow: 0 4px 15px rgba(37,211,102,0.4); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
         .lsi-footer { background: #0b1120; padding: 3rem 0; font-size: 0.9rem; color: #64748b; }
         .lsi-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
         .lsi-tags span { background: #1e293b; padding: 0.2rem 0.8rem; border-radius: 4px; }
@@ -77,35 +49,19 @@
           "@id": "https://domainklien.com/#organization",
           "name": "Boutique Property South Bali",
           "url": "https://domainklien.com",
-          "logo": "https://domainklien.com/assets/images/logo.webp",
-          "description": "Portofolio investasi aset strategis dan lahan premium di koridor Kuta Selatan, Bali.",
+          "description": "Portofolio investasi aset strategis di koridor Kuta Selatan, Bali.",
           "telephone": "+6281234567890",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Kuta Selatan",
-            "addressRegion": "Bali",
-            "addressCountry": "ID"
-          },
-          "sameAs": [
-            "https://www.instagram.com/dummyklien",
-            "https://www.facebook.com/dummyklien"
-          ]
+          "address": { "@type": "PostalAddress", "addressLocality": "Kuta Selatan", "addressRegion": "Bali", "addressCountry": "ID" }
         },
         {
           "@type": "WebPage",
           "@id": "https://domainklien.com/#webpage",
           "url": "https://domainklien.com",
-          "name": "Investasi Properti Mewah Kuta Selatan Bali | High-Yield Resort",
+          "name": "Investasi Properti Mewah Kuta Selatan Bali",
           "isPartOf": {"@id": "https://domainklien.com/#website"},
-          "about": {"@id": "https://domainklien.com/#organization"},
           "relatedLink": [
             "https://dongkrakusaha.com/tren-apresiasi-modal-properti-kuta-selatan",
-            "https://dongkrakusaha.com/jarak-15-menit-bandara-investasi-resor",
-            "https://dongkrakusaha.com/vila-pinggir-tebing-bali",
-            "https://dongkrakusaha.com/sustainable-luxury-living-ekspatriat",
-            "https://dongkrakusaha.com/tech-hub-bali-selatan",
-            "https://dongkrakusaha.com/scarcity-effect-lahan-kuta-selatan",
-            "https://dongkrakusaha.com/komparasi-roi-residensial-komersial"
+            "https://dongkrakusaha.com/jarak-15-menit-bandara-investasi-resor"
           ]
         }
       ]
@@ -116,9 +72,7 @@
 
     <section class="hero">
         <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80" 
-             alt="Pemandangan udara resor mewah dan kawasan pesisir premium di Kuta Selatan Bali"
-             fetchpriority="high" loading="eager" decoding="sync">
-        
+             alt="Pemandangan udara resor mewah Kuta Selatan Bali" fetchpriority="high" loading="eager" decoding="sync">
         <div class="hero-content container">
             <h1 class="mb-4">Kuasai Aset Pesisir Terakhir di <span class="text-gold">Kuta Selatan</span>.</h1>
             <p class="mb-8">South Kuta mewakili batas akhir pasar mewah Bali yang matang. Sinergi sempurna antara infrastruktur yang mapan dan eksklusivitas tingkat tinggi.</p>
@@ -129,64 +83,56 @@
     <section class="lazy-section py-20 container">
         <div class="text-center mb-8">
             <h2 class="mb-4">Portofolio Aset Berkinerja Tinggi (High-Yield)</h2>
-            <p>Eksplorasi mahakarya arsitektur yang dirancang untuk mendominasi pasar ultra-mewah. Lahan semakin langka, percepat keputusan Anda sebelum fase harga pra-peluncuran ditutup.</p>
+            <p>Eksplorasi mahakarya arsitektur yang dirancang untuk mendominasi pasar ultra-mewah. Amankan sebelum fase harga pra-peluncuran ditutup.</p>
         </div>
 
         <div class="grid-3">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=80" 
-                     alt="Desain arsitektur ikonik Locca Resort di pinggir tebing Kuta Selatan" 
-                     loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=80" alt="Locca Resort" loading="lazy" decoding="async">
                 <div class="card-body">
                     <h3>Estate I: Locca Bespoke Resort</h3>
                     <p><strong>Luas Lahan:</strong> ± 70,000 SQM</p>
-                    <p>Resor pesisir butik premium dengan arsitektur tebing ikonik. Target pasar segmen ultra-mewah yang mencari privasi absolut di pesisir Selatan.</p>
+                    <p>Resor pesisir butik premium dengan arsitektur tebing ikonik. Target pasar segmen ultra-mewah di pesisir Selatan.</p>
                     <a href="/properti/locca-resort.html" style="color: var(--accent-gold); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">Lihat Detail Locca Resort &rarr;</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=800&q=80" 
-                     alt="Fasad hunian mewah berkelanjutan berkonsep tropical wellness di Natadesa Bali" 
-                     loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=800&q=80" alt="Natadesa Luxury Living" loading="lazy" decoding="async">
                 <div class="card-body">
                     <h3>Estate II: Natadesa Luxury Living</h3>
                     <p><strong>Luas Lahan:</strong> ± 23,000 SQM</p>
-                    <p>Ekosistem residensial premium. Menggabungkan harmoni ekologis dan gaya hidup resor tropis. Saat ini dalam fase perencanaan kritis untuk masuk lebih awal.</p>
+                    <p>Ekosistem residensial premium. Menggabungkan harmoni ekologis dan gaya hidup resor tropis. Fase perencanaan kritis.</p>
+                    <a href="/properti/natadesa-luxury-living.html" style="color: var(--accent-gold); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">Lihat Detail Natadesa &rarr;</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" 
-                     alt="Fasilitas ekosistem kreatif dan tech hub terintegrasi di Bali" 
-                     loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Integrated Hospitality Hub" loading="lazy" decoding="async">
                 <div class="card-body">
                     <h3>Estate III: Integrated Hub</h3>
                     <p><strong>Kapasitas NLA:</strong> ± 2,177 SQM</p>
-                    <p>Pusat gravitasi kreatif dengan visibilitas tinggi. Dirancang sebagai tech hub global dan ritel premium bagi komunitas ekspatriat profesional.</p>
+                    <p>Pusat gravitasi kreatif dengan visibilitas tinggi. Dirancang sebagai tech hub global dan ritel premium komunitas ekspatriat.</p>
+                    <a href="/komersial/hospitality-hub-bali.html" style="color: var(--accent-gold); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">Lihat Detail Hub Komersial &rarr;</a>
                 </div>
             </div>
         </div>
 
         <div class="aeo-block">
             <h3>Mengapa Investasi Properti di Kuta Selatan?</h3>
-            <p>Kuta Selatan adalah jantung pengembangan resor kelas dunia. Kelangkaan lahan pesisir strategis yang hanya berjarak 15 menit dari Bandara menjamin apresiasi modal eksponensial. Ini adalah langkah pengamanan aset premium sebelum terserap investor asing.</p>
+            <p>Kuta Selatan adalah jantung pengembangan resor kelas dunia. Kelangkaan lahan pesisir strategis yang berjarak 15 menit dari Bandara menjamin apresiasi modal eksponensial. Langkah pengamanan aset sebelum terserap investor asing.</p>
         </div>
     </section>
 
     <footer class="lsi-footer lazy-section">
         <div class="container">
             <h3 style="color: #94a3b8; font-size: 1.2rem;" class="mb-4">Pencarian Terkait (Tags Ekspansi Lokal)</h3>
-            <p style="color: #64748b; font-size: 0.9rem;">
-                Sebagai pusat data referensi investasi jangka panjang, kami memetakan matriks kelangkaan lahan pesisir. Penetrasi pasar di sektor residensial bergaransi tinggi membutuhkan analitik akurat. Laporan ini didukung oleh kajian teknis arsitektur pinggir jurang dan analisis visibilitas ruang komersial bandara.
-            </p>
             <div class="lsi-tags">
                 <span>Investasi Villa Kuta Selatan</span>
                 <span>Harga Tanah Tebing Bali</span>
                 <span>Proyek Resor Baru Bali 2026</span>
                 <span>Sewa Ruang Komersial Ekspatriat</span>
                 <span>Aset Properti Ultra-Mewah</span>
-                <span>Yield Sewa Bali Selatan</span>
             </div>
             <p style="margin-top: 2rem; border-top: 1px solid #334155; padding-top: 1rem; text-align: center;">
                 &copy; 2026 Boutique Property South Bali. Protected by TITAN Architecture. Waktu Muat Dipantau Secara Ketat.
@@ -194,7 +140,7 @@
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20melihat%20portofolio%20Mothership%20Kuta%20Selatan.%20Saya%20ingin%20mengamankan%20unit%20sebelum%20harga%20naik.%20Bisa%20bantu?" class="btn-wa" target="_blank" rel="noopener noreferrer">
+    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20melihat%20portofolio%20Mothership%20Kuta%20Selatan." class="btn-wa" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
