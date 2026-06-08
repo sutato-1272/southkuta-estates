@@ -112,7 +112,27 @@
         .stat-number { font-size: 3.5rem; font-weight: 300; color: var(--accent-gold); line-height: 1; margin-bottom: 0.8rem; text-shadow: 0 0 25px rgba(223, 177, 99, 0.5); font-family: "Didot", "Bodoni MT", serif; }
         .stat-label { font-size: 0.75rem; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; opacity: 0.9; }
 
-        /* NATIVE CSS ACCORDION FAQ (SOP LSI INJECTION) */
+        /* STRATEGIC NODES (Jarak Lokasi) */
+        .nodes-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
+        @media (min-width: 768px) { .nodes-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .nodes-grid { grid-template-columns: repeat(4, 1fr); } }
+        .node-card { border-left: 2px solid rgba(223, 177, 99, 0.3); padding-left: 1.5rem; transition: border-color 0.3s; }
+        .node-card:hover { border-color: var(--accent-gold); }
+        .node-time { font-family: "Didot", serif; font-size: 2.5rem; color: var(--accent-gold); line-height: 1; margin-bottom: 0.5rem; display: block; }
+        .node-desc { font-size: 0.9rem; color: var(--text-main); font-weight: 500; }
+        .node-sub { font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 0.3rem; }
+
+        /* TESTIMONIALS (Social Proof) */
+        .testimonial-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
+        @media (min-width: 1024px) { .testimonial-grid { grid-template-columns: repeat(3, 1fr); } }
+        .testimonial-card { background: rgba(15,15,15,0.6); backdrop-filter: blur(15px); padding: 3rem 2.5rem; border: 1px solid var(--border-subtle); border-radius: 6px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.4s; }
+        .testimonial-card:hover { transform: translateY(-5px); border-color: rgba(223, 177, 99, 0.5); }
+        .quote-icon { position: absolute; top: 1.5rem; right: 2rem; font-size: 4rem; font-family: Georgia, serif; color: var(--accent-gold); opacity: 0.15; line-height: 1; }
+        .testi-text { font-size: 1.05rem; font-style: italic; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; position: relative; z-index: 2; }
+        .testi-author { color: white; font-weight: 600; font-size: 1rem; letter-spacing: 0.05em; }
+        .testi-role { color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-top: 0.2rem; }
+
+        /* NATIVE CSS ACCORDION FAQ */
         .faq-section { max-width: 900px; margin: 0 auto; }
         details { border-bottom: 1px solid var(--border-subtle); padding: 1.5rem 0; cursor: pointer; transition: all 0.3s ease; }
         details:hover summary { color: var(--accent-gold); }
@@ -123,7 +143,6 @@
         .faq-answer { padding-top: 1rem; color: var(--text-muted); line-height: 1.7; font-size: 1rem; font-weight: 400; animation: fadeInDown 0.3s ease-in-out; }
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* LSI TAGS PILL */
         .tags-wrapper { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
         .tag-pill { border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         .tag-pill:hover { border-color: var(--accent-gold); color: var(--accent-gold); background: rgba(223, 177, 99, 0.1); transform: translateY(-2px); }
@@ -169,7 +188,7 @@
             },
             {
               "@type": "Question",
-              "name": "Apakah Ekspatriat atau WNA bisa membeli properti di Bali?",
+              "name": "Apakah Ekspatriat atau WNA bisa membeli properti di Bali secara legal?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Ya, kami menyediakan layanan legalitas end-to-end, termasuk pendirian badan usaha PT PMA untuk struktur Hak Pakai atau Hak Guna Bangunan (HGB) yang 100% aman dan sah secara hukum."
@@ -317,6 +336,66 @@
             <div class="bento-box" style="grid-column: span 1;">
                 <span class="stat-number font-serif">Top</span>
                 <span class="stat-label">Capital Gain</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 container lazy-section" style="border-top: 1px solid var(--border-subtle);">
+        <div style="margin-bottom: 3rem;">
+            <span class="tracking-widest" style="font-size: 0.75rem; color: var(--accent-gold); display: inline-block; border: 1px solid var(--border-subtle); padding: 0.3rem 1rem; border-radius: 50px;">Location Viability</span>
+            <h2 class="font-display" style="font-size: clamp(2rem, 4vw, 3rem); color: white; margin-top: 1rem;">Konektivitas <span class="font-serif" style="color: var(--accent-gold);">Strategis.</span></h2>
+        </div>
+        
+        <div class="nodes-grid">
+            <div class="node-card">
+                <span class="node-time">15 <span style="font-size: 1rem; font-family: sans-serif;">Min</span></span>
+                <span class="node-desc">Int. Airport Ngurah Rai</span>
+                <span class="node-sub">Akses logistik dan penerbangan global.</span>
+            </div>
+            <div class="node-card">
+                <span class="node-time">10 <span style="font-size: 1rem; font-family: sans-serif;">Min</span></span>
+                <span class="node-desc">Premium Beach Clubs</span>
+                <span class="node-sub">Episentrum gaya hidup pesisir elit.</span>
+            </div>
+            <div class="node-card">
+                <span class="node-time">20 <span style="font-size: 1rem; font-family: sans-serif;">Min</span></span>
+                <span class="node-desc">Tol Bali Mandara</span>
+                <span class="node-sub">Bypass strategis ke pusat Sanur & Denpasar.</span>
+            </div>
+            <div class="node-card">
+                <span class="node-time">05 <span style="font-size: 1rem; font-family: sans-serif;">Min</span></span>
+                <span class="node-desc">Future Hub Planning</span>
+                <span class="node-sub">Berdekatan dengan rencana marina internasional.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 container lazy-section" style="border-top: 1px solid var(--border-subtle);">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 class="font-display" style="font-size: clamp(2rem, 4vw, 3rem); color: white;">Trust & <span class="font-serif" style="color: var(--accent-gold);">Discretion.</span></h2>
+            <p style="color: var(--text-muted); font-size: 1rem; max-width: 600px; margin: 1rem auto 0;">Validasi operasional dari mitra dan principal kami di seluruh dunia.</p>
+        </div>
+
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <span class="quote-icon">"</span>
+                <p class="testi-text">Eksekusi akuisisi lahan yang sangat senyap dan presisi. Strategi *off-market* mereka mengamankan aset sebelum inflasi harga terjadi. ROI terealisasi lebih agresif dari proyeksi awal.</p>
+                <span class="testi-author">A. Wijaya</span>
+                <span class="testi-role">Private Equity Partner, Singapore</span>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="quote-icon">"</span>
+                <p class="testi-text">Satu-satunya entitas di Bali yang benar-benar memahami makna dari *absolute discretion* dan manajemen aset skala *ultra-luxury*. Panduan regulasi PT PMA mereka sangat tanpa celah.</p>
+                <span class="testi-author">R. Hartanto</span>
+                <span class="testi-role">Tech Founder, Jakarta</span>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="quote-icon">"</span>
+                <p class="testi-text">Kurasi lokasi tebing yang luar biasa. Pendekatan arsitektur mereka tidak hanya mengoptimalkan tata ruang, tetapi secara langsung memancing *Capital Gain* yang luar biasa.</p>
+                <span class="testi-author">E. Muller</span>
+                <span class="testi-role">HNWI Investor, Zurich</span>
             </div>
         </div>
     </section>
