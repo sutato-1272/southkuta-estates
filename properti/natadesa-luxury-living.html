@@ -3,54 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natadesa Luxury Living | Hunian Resort Berkelanjutan di Bali</title>
+    <title>Natadesa Luxury Living | Timeless Assets Kuta Selatan</title>
     <meta name="description" content="Natadesa: Residensial premium dengan konsep tropical wellness di lahan ± 23,000 SQM. Saat ini dalam fase perencanaan. Amankan harga perdana Anda.">
     <meta name="robots" content="index, follow">
     
     <style>
-        :root { --bg-dark: #0f172a; --text-main: #f8fafc; --accent-gold: #d4af37; --wa-green: #25D366; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.7; }
-        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
-        .nav-back { display: inline-block; color: var(--accent-gold); text-decoration: none; margin-bottom: 2rem; font-weight: bold; border: 1px solid var(--accent-gold); padding: 0.5rem 1rem; border-radius: 4px; }
-        .nav-back:hover { background: var(--accent-gold); color: var(--bg-dark); }
-        h1 { font-size: 2.2rem; line-height: 1.3; margin-bottom: 1rem; }
-        h2 { font-size: 1.8rem; color: var(--accent-gold); margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; }
-        p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #cbd5e1; }
-        .hero-img { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; }
-        .specs-box { background: #1e293b; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-gold); margin-bottom: 2rem; }
+        :root {
+            --bg-dark: #050505; 
+            --bg-card: rgba(15, 15, 15, 0.4);
+            --text-main: #ffffff; 
+            --text-muted: #a8a29e; 
+            --accent-gold: #DFB163; 
+            --border-subtle: rgba(223, 177, 99, 0.2); 
+            --wa-green: #25D366;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .font-display { font-weight: 800; letter-spacing: -0.03em; }
+        .font-serif { font-family: "Didot", "Bodoni MT", ui-serif, Georgia, serif; font-style: italic; font-weight: normal; }
+        .tracking-widest { letter-spacing: 0.25em; text-transform: uppercase; }
+
+        /* Background Animasi Fluid */
+        .bg-fluid { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-dark); overflow: hidden; }
+        .bg-fluid::before, .bg-fluid::after { content: ''; position: absolute; width: 150vw; height: 150vw; top: -25vw; left: -25vw; filter: blur(100px); opacity: 0.6; transform-origin: center; animation: spin 30s linear infinite; }
+        .bg-fluid::before { background: conic-gradient(from 0deg at 50% 50%, transparent 0%, rgba(223, 177, 99, 0.2) 25%, transparent 50%, rgba(30, 40, 60, 0.5) 75%, transparent 100%); }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .moving-lines { position: fixed; top: 0; left: 0; width: 100vw; height: 120vh; z-index: -1; background-image: linear-gradient(rgba(223, 177, 99, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(223, 177, 99, 0.05) 1px, transparent 1px); background-size: 80px 80px; animation: gridMove 25s linear infinite; pointer-events: none; mask-image: radial-gradient(circle at center, black 20%, transparent 90%); -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 90%); }
+        @keyframes gridMove { 0% { transform: translateY(-80px); } 100% { transform: translateY(0); } }
+
+        /* Konten */
+        .container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; position: relative; z-index: 10; }
+        
+        .nav-back { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent-gold); text-decoration: none; margin-bottom: 3rem; font-size: 0.85rem; font-weight: bold; border: 1px solid var(--border-subtle); padding: 0.5rem 1.5rem; border-radius: 50px; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); transition: all 0.3s; }
+        .nav-back:hover { background: var(--accent-gold); color: black; }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; text-shadow: 0 5px 15px rgba(0,0,0,0.8); }
+        h2 { font-size: 2rem; color: white; margin-top: 3.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; font-weight: 400; }
+        p { margin-bottom: 1.5rem; font-size: 1.15rem; color: var(--text-muted); font-weight: 300; }
+        
+        .hero-img { width: 100%; height: 50vh; object-fit: cover; border-radius: 8px; margin-bottom: 3rem; border: 1px solid var(--border-subtle); box-shadow: 0 10px 40px rgba(0,0,0,0.6); filter: brightness(0.9); }
+        
+        .specs-box { background: rgba(15,15,15,0.6); backdrop-filter: blur(15px); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-subtle); margin-bottom: 3rem; box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
         .specs-box ul { list-style: none; }
-        .specs-box li { margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .btn-wa { position: fixed; bottom: 20px; right: 20px; background: var(--wa-green); color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; z-index: 999; animation: pulse 2s infinite; box-shadow: 0 4px 15px rgba(37,211,102,0.4); }
-        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37,211,102,0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 15px transparent; } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 transparent; } }
+        .specs-box li { margin-bottom: 1rem; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; display: flex; justify-content: space-between; }
+        .specs-box li strong { color: white; font-weight: 500; }
+        .specs-box li span { color: var(--accent-gold); font-family: monospace; }
+        
+        .btn-wa { position: fixed; bottom: 30px; right: 30px; background: var(--wa-green); color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.3); animation: pulse 2s infinite; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px); }
+        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 15px transparent; } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 transparent; } }
     </style>
 </head>
 <body>
 
+    <div class="bg-fluid"></div>
+    <div class="moving-lines"></div>
+
     <div class="container">
-        <a href="/" class="nav-back">&larr; Kembali ke Portfolio Utama</a>
+        <a href="/" class="nav-back tracking-widest">&larr; Portfolio Utama</a>
 
-        <h1>Natadesa Luxury Living: Cetak Biru Hunian Berkelanjutan di Bali</h1>
+        <h1 class="font-display">Natadesa Luxury <br><span class="font-serif" style="color: var(--accent-gold);">Residensial Living</span></h1>
         
-        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80" 
-             alt="Fasad hunian mewah Natadesa Bali" class="hero-img" fetchpriority="high">
+        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1600&q=80" 
+             alt="Fasad hunian mewah Natadesa Bali" 
+             class="hero-img" fetchpriority="high">
 
-        <p>Tren investasi global kini bergerak agresif menuju harmoni ekologis tanpa mengorbankan standar kemewahan tingkat tinggi. Natadesa Luxury Living adalah jawaban untuk pasar yang mencari keseimbangan sempurna tersebut[cite: 20].</p>
+        <p>Tren investasi global kini bergerak agresif menuju harmoni ekologis tanpa mengorbankan standar kemewahan tingkat tinggi. Natadesa Luxury Living adalah jawaban untuk pasar yang mencari keseimbangan sempurna tersebut.</p>
 
-        <p>Berada di dalam ekosistem hunian yang sudah sangat prestisius, Natadesa memadukan konsep <i>tropical wellness</i> dengan desain arsitektur kontemporer[cite: 20].</p>
+        <p>Berada di dalam ekosistem hunian yang sudah sangat prestisius, Natadesa memadukan konsep <i>tropical wellness</i> dengan desain arsitektur kontemporer.</p>
 
         <div class="specs-box">
-            <h3 style="color: var(--text-main); margin-bottom: 1rem;">Spesifikasi Proyek</h3>
+            <h3 class="font-display tracking-widest" style="color: var(--accent-gold); margin-bottom: 2rem; font-size: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">Future Pipeline Specs</h3>
             <ul>
-                <li><strong>📍 Lokasi:</strong> Established Premium Enclave [cite: 21]</li>
-                <li><strong>📐 Total Luas Lahan:</strong> ± 23,000 SQM [cite: 21]</li>
-                <li><strong>⏳ Status:</strong> Planning Phase (Fase Perencanaan) [cite: 21]</li>
-                <li><strong>🎯 Fokus Utama:</strong> Tropical Wellness & Ecological Harmony [cite: 20]</li>
+                <li><strong>Lokasi Enklave</strong> <span>Established Premium Area, Bali</span></li>
+                <li><strong>Total Luas Lahan</strong> <span>± 23,000 SQM</span></li>
+                <li><strong>Status Proyek</strong> <span>Planning Phase (Perencanaan)</span></li>
+                <li><strong>Fokus Arsitektur</strong> <span>Tropical Wellness & Eco Luxury</span></li>
             </ul>
         </div>
 
-        <h2>Momentum Harga Pra-Peluncuran</h2>
-        <p>Aset residensial premium di kawasan eksklusif selalu mengalami lonjakan nilai modal yang ekstrem saat memasuki fase konstruksi fisik. Memposisikan investasi Anda di fase perencanaan (Planning Phase) ini adalah strategi paling rasional untuk mengunci ROI (Return on Investment) maksimal[cite: 21].</p>
+        <h2 class="font-display">Early-Bird <span class="font-serif" style="color: var(--accent-gold);">Momentum</span></h2>
+        <p>Aset residensial premium di kawasan eksklusif selalu mengalami lonjakan nilai modal yang ekstrem saat memasuki fase konstruksi fisik. Memposisikan investasi Anda di fase perencanaan (Planning Phase) ini adalah strategi paling rasional untuk mengunci ROI (Return on Investment) maksimal.</p>
     </div>
 
     <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20ingin%20mengunci%20harga%20early-bird%20untuk%20proyek%20NATADESA." class="btn-wa" target="_blank">
