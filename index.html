@@ -8,14 +8,13 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     
     <style>
-        /* FASE 1: CSS ZERO-BLOAT (AURA ANIMATED + LUXURY GRID) */
+        /* FASE 1: CSS ZERO-BLOAT (FLUID AURA & MOVING GRID EDITION) */
         :root {
             --bg-dark: #050505; 
-            --bg-card: rgba(15, 15, 15, 0.6);
+            --bg-card: rgba(15, 15, 15, 0.4);
             --text-main: #ffffff; 
             --text-muted: #a8a29e; 
             --accent-gold: #DFB163; 
-            --accent-glow: rgba(223, 177, 99, 0.15);
             --border-subtle: rgba(223, 177, 99, 0.2); 
             --wa-green: #25D366;
         }
@@ -30,30 +29,39 @@
             overflow-x: hidden;
         }
 
-        /* Tipografi Ultra-Premium (Native Font Stack) */
+        /* Tipografi Ultra-Premium */
         .font-display { font-weight: 800; letter-spacing: -0.03em; }
-        /* Memanggil font majalah fashion mewah yang ada di device pengguna (Zero Request) */
         .font-serif { font-family: "Didot", "Bodoni MT", "Palatino Linotype", "Cinzel", ui-serif, Georgia, serif; font-style: italic; font-weight: normal; letter-spacing: 0.02em; }
         .tracking-widest { letter-spacing: 0.25em; text-transform: uppercase; }
 
-        /* PURE CSS BACKGROUND: ANIMATED AURORA + GRID (Meniru aura.build) */
-        .bg-aurora { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-dark); overflow: hidden; }
-        .bg-aurora::before, .bg-aurora::after { content: ''; position: absolute; width: 80vw; height: 80vw; border-radius: 50%; filter: blur(90px); animation: float 20s infinite alternate ease-in-out; will-change: transform; }
-        .bg-aurora::before { background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%); top: -20%; left: -20%; }
-        .bg-aurora::after { background: radial-gradient(circle, rgba(15, 30, 50, 0.4) 0%, transparent 60%); bottom: -20%; right: -20%; animation-delay: -10s; }
-        
-        .bg-texture { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0.4;
-            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 60px 60px; mask-image: linear-gradient(to bottom, black 20%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%); }
+        /* PURE CSS UNICORN STUDIO CLONE: FLUID AURA */
+        .bg-fluid { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-dark); overflow: hidden; }
+        .bg-fluid::before, .bg-fluid::after { 
+            content: ''; position: absolute; width: 150vw; height: 150vw; top: -25vw; left: -25vw; 
+            filter: blur(100px); opacity: 0.85; transform-origin: center; animation: spin 25s linear infinite; 
+            will-change: transform;
+        }
+        .bg-fluid::before { background: conic-gradient(from 0deg at 50% 50%, transparent 0%, rgba(223, 177, 99, 0.35) 25%, transparent 50%, rgba(30, 40, 60, 0.8) 75%, transparent 100%); }
+        .bg-fluid::after { animation-direction: reverse; animation-duration: 35s; background: conic-gradient(from 180deg at 50% 50%, transparent 0%, rgba(20, 20, 25, 0.7) 25%, transparent 50%, rgba(223, 177, 99, 0.25) 75%, transparent 100%); }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(3%, 5%) scale(1.1); } }
+        /* MOVING ARCHITECTURE GRID (Garis Berjalan) */
+        .moving-lines { 
+            position: fixed; top: 0; left: 0; width: 100vw; height: 120vh; z-index: -1; 
+            background-image: linear-gradient(rgba(223, 177, 99, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(223, 177, 99, 0.1) 1px, transparent 1px); 
+            background-size: 80px 80px; 
+            animation: gridMove 20s linear infinite; pointer-events: none; 
+            mask-image: radial-gradient(circle at center, black 20%, transparent 90%);
+            -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 90%);
+        }
+        @keyframes gridMove { 0% { transform: translateY(-80px); } 100% { transform: translateY(0); } }
 
         /* Layout Dasar */
         .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 10; }
         .py-24 { padding-top: 7rem; padding-bottom: 7rem; }
 
         /* Navigasi */
-        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 50; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 50; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(223,177,99,0.1); background: rgba(5,5,5,0.4); }
         .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.1em; color: var(--accent-gold); text-decoration: none; }
 
         /* Hero Section */
@@ -61,47 +69,47 @@
         .status-badge { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; color: var(--accent-gold); margin-bottom: 2rem; font-weight: bold; border: 1px solid var(--border-subtle); padding: 0.5rem 1rem; border-radius: 50px; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         .pulse-dot { width: 6px; height: 6px; background-color: var(--accent-gold); border-radius: 50%; animation: pulse-opacity 2s infinite; box-shadow: 0 0 8px var(--accent-gold); }
         .hero h1 { font-size: clamp(3.5rem, 8vw, 8.5rem); line-height: 0.9; margin-bottom: 1.5rem; text-shadow: 0px 10px 30px rgba(0,0,0,0.8); }
-        .hero p { max-width: 500px; color: var(--text-muted); font-weight: 300; font-size: 1.15rem; line-height: 1.8; }
+        .hero p { max-width: 500px; color: var(--text-main); font-weight: 400; font-size: 1.15rem; line-height: 1.8; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
 
         @keyframes pulse-opacity { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
         /* Infinite Marquee */
-        .marquee-wrapper { border-bottom: 1px solid var(--border-subtle); padding: 1.2rem 0; overflow: hidden; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); }
+        .marquee-wrapper { border-bottom: 1px solid var(--border-subtle); padding: 1.2rem 0; overflow: hidden; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); }
         .marquee-content { display: inline-block; white-space: nowrap; animation: marquee 35s linear infinite; font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; }
-        .marquee-content span { margin: 0 3.5rem; opacity: 0.8; }
+        .marquee-content span { margin: 0 3.5rem; opacity: 0.9; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* Glassmorphism Cards */
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 4rem; }
         @media (min-width: 1024px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
         
-        .project-card { display: block; text-decoration: none; border: 1px solid var(--border-subtle); background: var(--bg-card); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; position: relative; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .project-card:hover { border-color: var(--accent-gold); background: rgba(20, 20, 20, 0.8); box-shadow: 0 15px 40px rgba(223, 177, 99, 0.15); transform: translateY(-8px); }
+        .project-card { display: block; text-decoration: none; border: 1px solid var(--border-subtle); background: var(--bg-card); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; position: relative; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+        .project-card:hover { border-color: var(--accent-gold); background: rgba(30, 30, 30, 0.7); box-shadow: 0 15px 50px rgba(223, 177, 99, 0.25); transform: translateY(-8px); }
         .project-img-wrapper { aspect-ratio: 16/10; overflow: hidden; position: relative; }
-        .project-img-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85) contrast(1.1); transition: transform 1.2s ease, filter 0.6s ease; }
-        .project-card:hover .project-img-wrapper img { transform: scale(1.08); filter: brightness(1.1) contrast(1.1); }
+        .project-img-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) contrast(1.1); transition: transform 1.2s ease, filter 0.6s ease; }
+        .project-card:hover .project-img-wrapper img { transform: scale(1.08); filter: brightness(1.1) contrast(1.2); }
         
-        .glass-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 2.5rem 2rem; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%); display: flex; justify-content: space-between; align-items: flex-end; }
+        .glass-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 2.5rem 2rem; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); display: flex; justify-content: space-between; align-items: flex-end; }
         .glass-info h3 { color: white; font-size: 1.8rem; font-weight: 500; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
-        .glass-info p { color: var(--accent-gold); font-size: 0.85rem; font-family: monospace; font-weight: bold; background: rgba(0,0,0,0.6); padding: 0.3rem 0.6rem; border-radius: 4px; border: 1px solid rgba(223,177,99,0.3); }
+        .glass-info p { color: var(--accent-gold); font-size: 0.85rem; font-family: monospace; font-weight: bold; background: rgba(0,0,0,0.6); padding: 0.3rem 0.6rem; border-radius: 4px; border: 1px solid rgba(223,177,99,0.4); }
         
-        .project-meta { padding: 1.8rem 2rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); }
-        .project-meta p { color: var(--text-muted); font-size: 0.95rem; max-width: 80%; line-height: 1.6; }
+        .project-meta { padding: 1.8rem 2rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(223,177,99,0.2); }
+        .project-meta p { color: var(--text-main); font-size: 0.95rem; max-width: 80%; line-height: 1.6; }
         .arrow-btn { width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); transition: all 0.4s; font-size: 1.2rem; }
         .project-card:hover .arrow-btn { background: var(--accent-gold); color: black; transform: rotate(45deg); }
 
         /* Bento Grid */
         .bento-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 4rem; }
         @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(4, 1fr); } }
-        .bento-box { background: var(--bg-card); backdrop-filter: blur(10px); border: 1px solid var(--border-subtle); padding: 3rem 2rem; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: all 0.4s ease; box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
-        .bento-box:hover { border-color: var(--accent-gold); background: rgba(30,30,30,0.6); transform: translateY(-3px); }
+        .bento-box { background: var(--bg-card); backdrop-filter: blur(15px); border: 1px solid var(--border-subtle); padding: 3rem 2rem; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: all 0.4s ease; box-shadow: inset 0 0 30px rgba(0,0,0,0.5); }
+        .bento-box:hover { border-color: var(--accent-gold); background: rgba(40,40,40,0.5); transform: translateY(-3px); }
         
         .bento-large { grid-column: span 1; background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80') center/cover; position: relative; border: 1px solid var(--border-subtle); overflow: hidden; }
         @media (min-width: 768px) { .bento-large { grid-column: span 2; grid-row: span 2; } }
         .bento-large::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(10,10,10,0.2)); }
         .bento-large-content { position: relative; z-index: 10; text-align: left; align-items: flex-start; justify-content: flex-end; height: 100%; width: 100%; display: flex; flex-direction: column; }
         
-        .stat-number { font-size: 3.5rem; font-weight: 300; color: var(--accent-gold); line-height: 1; margin-bottom: 0.8rem; text-shadow: 0 0 25px rgba(223, 177, 99, 0.4); font-family: "Didot", "Bodoni MT", serif; }
+        .stat-number { font-size: 3.5rem; font-weight: 300; color: var(--accent-gold); line-height: 1; margin-bottom: 0.8rem; text-shadow: 0 0 25px rgba(223, 177, 99, 0.5); font-family: "Didot", "Bodoni MT", serif; }
         .stat-label { font-size: 0.75rem; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; opacity: 0.9; }
 
         /* Sticky WA */
@@ -140,12 +148,12 @@
 </head>
 <body>
 
-    <div class="bg-aurora"></div>
-    <div class="bg-texture"></div>
+    <div class="bg-fluid"></div>
+    <div class="moving-lines"></div>
 
     <nav>
         <a href="#" class="logo">SOUTHKUTA ESTATES</a>
-        <div style="font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">
+        <div style="font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-main); font-weight: 600;">
             Portfolio &mdash; <span style="color: var(--accent-gold);">Bali</span>
         </div>
     </nav>
@@ -187,7 +195,7 @@
             <h2 class="font-display" style="font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; color: white;">
                 Dibangun Untuk <br> <span class="font-serif" style="color: var(--accent-gold);">Generasi Mendatang.</span>
             </h2>
-            <p style="color: var(--text-muted); max-width: 650px; font-weight: 400; font-size: 1.15rem;">
+            <p style="color: var(--text-main); max-width: 650px; font-weight: 400; font-size: 1.15rem;">
                 Pendekatan kami dalam manajemen aset menggabungkan presisi analitik yang ketat dengan apresiasi seniman terhadap bentuk dan ruang. Kami tidak sekadar menahan aset; kami mengukir warisan.
             </p>
         </div>
@@ -242,7 +250,7 @@
             <div class="bento-box bento-large">
                 <div class="bento-large-content">
                     <h3 style="font-size: 2.5rem; color: white; font-weight: 600; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">The Board</h3>
-                    <p style="color: #e2e8f0; font-weight: 300; font-size: 1.05rem; max-width: 90%; line-height: 1.8;">Kelangkaan lahan pesisir strategis menjamin apresiasi modal eksponensial. Kami mengunci aset premium sebelum terserap investor asing.</p>
+                    <p style="color: #ffffff; font-weight: 400; font-size: 1.05rem; max-width: 90%; line-height: 1.8;">Kelangkaan lahan pesisir strategis menjamin apresiasi modal eksponensial. Kami mengunci aset premium sebelum terserap investor asing.</p>
                 </div>
             </div>
             
@@ -272,8 +280,8 @@
         <h2 class="font-display" style="font-size: clamp(3rem, 6vw, 5rem); color: white; line-height: 1; margin-bottom: 1.5rem;">
             Build <span class="font-serif" style="color: var(--accent-gold);">Legacy.</span>
         </h2>
-        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 3rem; font-weight: bold; letter-spacing: 0.05em;">contact@domainklien.com &bull; Protected by TITAN Architecture</p>
-        <span class="tracking-widest" style="font-size: 0.75rem; color: rgba(255,255,255,0.3);">© 2026 Boutique Property South Bali</span>
+        <p style="color: var(--text-main); font-size: 1rem; margin-bottom: 3rem; font-weight: bold; letter-spacing: 0.05em;">contact@domainklien.com &bull; Protected by TITAN Architecture</p>
+        <span class="tracking-widest" style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">© 2026 Boutique Property South Bali</span>
     </footer>
 
     <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20melihat%20portofolio%20Timeless%20Assets%20Kuta%20Selatan." class="btn-wa" target="_blank">
