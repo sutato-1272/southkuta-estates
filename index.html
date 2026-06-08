@@ -8,6 +8,7 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     
     <style>
+        /* FASE 1: CSS ZERO-BLOAT (ROYAL BLACK & GOLD - FINAL EDITION) */
         :root {
             --bg-dark: #050505; 
             --bg-card: rgba(15, 15, 15, 0.4);
@@ -32,6 +33,7 @@
         .font-serif { font-family: "Didot", "Bodoni MT", "Palatino Linotype", "Cinzel", ui-serif, Georgia, serif; font-style: italic; font-weight: normal; letter-spacing: 0.02em; }
         .tracking-widest { letter-spacing: 0.25em; text-transform: uppercase; }
 
+        /* PURE CSS BACKGROUND ANIMATION */
         .bg-fluid { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-dark); overflow: hidden; }
         .bg-fluid::before, .bg-fluid::after { 
             content: ''; position: absolute; width: 150vw; height: 150vw; top: -25vw; left: -25vw; 
@@ -87,6 +89,8 @@
         
         .project-card { display: block; text-decoration: none; border: 1px solid var(--border-subtle); background: var(--bg-card); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; position: relative; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
         .project-card:hover { border-color: var(--accent-gold); background: rgba(30, 30, 30, 0.7); box-shadow: 0 15px 50px rgba(223, 177, 99, 0.25); transform: translateY(-8px); }
+        
+        /* KUNCI KEAMANAN UKURAN GAMBAR (ASPECT RATIO 16:10 + OBJECT FIT) */
         .project-img-wrapper { aspect-ratio: 16/10; overflow: hidden; position: relative; }
         .project-img-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) contrast(1.1); transition: transform 1.2s ease, filter 0.6s ease; }
         .project-card:hover .project-img-wrapper img { transform: scale(1.08); filter: brightness(1.1) contrast(1.2); }
@@ -220,7 +224,7 @@
         <div class="grid-2">
             <a href="/properti/locca-resort.html" class="project-card">
                 <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1200&q=80" alt="Locca Resort" loading="lazy">
+                    <img src="images/resort-tebing-mewah-locca-south-kuta.webp" alt="Resort Tebing Mewah Locca South Kuta" loading="lazy">
                     <div class="glass-info">
                         <h3>Locca Bespoke</h3>
                         <p>± 70,000 SQM</p>
@@ -234,7 +238,7 @@
 
             <a href="/properti/natadesa-luxury-living.html" class="project-card">
                 <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80" alt="Natadesa Luxury Living" loading="lazy">
+                    <img src="images/hunian-premium-tropis-berkelanjutan-natadesa-bali.webp" alt="Hunian Premium Tropis Berkelanjutan Natadesa Bali" loading="lazy">
                     <div class="glass-info">
                         <h3>Natadesa Living</h3>
                         <p>± 23,000 SQM</p>
@@ -248,7 +252,7 @@
 
             <a href="/komersial/hospitality-hub-bali.html" class="project-card" style="grid-column: 1 / -1;">
                 <div class="project-img-wrapper" style="aspect-ratio: 21/9;">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80" alt="Integrated Hub" loading="lazy">
+                    <img src="images/pusat-bisnis-tech-hub-eksklusif-kuta-selatan.webp" alt="Pusat Bisnis Tech Hub Eksklusif Kuta Selatan" loading="lazy">
                     <div class="glass-info">
                         <h3>Integrated Hospitality Hub</h3>
                         <p>NLA: ± 2,177 SQM</p>
