@@ -8,7 +8,7 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     
     <style>
-        /* FASE 1: CSS ZERO-BLOAT (ROYAL BLACK & GOLD) */
+        /* FASE 1: CSS ZERO-BLOAT (ROYAL BLACK & GOLD - FINAL EDITION) */
         :root {
             --bg-dark: #050505; 
             --bg-card: rgba(15, 15, 15, 0.4);
@@ -33,6 +33,7 @@
         .font-serif { font-family: "Didot", "Bodoni MT", "Palatino Linotype", "Cinzel", ui-serif, Georgia, serif; font-style: italic; font-weight: normal; letter-spacing: 0.02em; }
         .tracking-widest { letter-spacing: 0.25em; text-transform: uppercase; }
 
+        /* PURE CSS BACKGROUND ANIMATION */
         .bg-fluid { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-dark); overflow: hidden; }
         .bg-fluid::before, .bg-fluid::after { 
             content: ''; position: absolute; width: 150vw; height: 150vw; top: -25vw; left: -25vw; 
@@ -112,7 +113,7 @@
         .stat-number { font-size: 3.5rem; font-weight: 300; color: var(--accent-gold); line-height: 1; margin-bottom: 0.8rem; text-shadow: 0 0 25px rgba(223, 177, 99, 0.5); font-family: "Didot", "Bodoni MT", serif; }
         .stat-label { font-size: 0.75rem; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; opacity: 0.9; }
 
-        /* STRATEGIC NODES (Jarak Lokasi) */
+        /* STRATEGIC NODES */
         .nodes-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
         @media (min-width: 768px) { .nodes-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 1024px) { .nodes-grid { grid-template-columns: repeat(4, 1fr); } }
@@ -122,7 +123,7 @@
         .node-desc { font-size: 0.9rem; color: var(--text-main); font-weight: 500; }
         .node-sub { font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 0.3rem; }
 
-        /* TESTIMONIALS (Social Proof) */
+        /* TESTIMONIALS */
         .testimonial-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
         @media (min-width: 1024px) { .testimonial-grid { grid-template-columns: repeat(3, 1fr); } }
         .testimonial-card { background: rgba(15,15,15,0.6); backdrop-filter: blur(15px); padding: 3rem 2.5rem; border: 1px solid var(--border-subtle); border-radius: 6px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.4s; }
@@ -142,6 +143,21 @@
         details[open] summary::after { content: '-'; transform: rotate(180deg); }
         .faq-answer { padding-top: 1rem; color: var(--text-muted); line-height: 1.7; font-size: 1rem; font-weight: 400; animation: fadeInDown 0.3s ease-in-out; }
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* THE TRUST BRIDGE (SILO READING LIST) */
+        .silo-briefing { max-width: 900px; margin: 4rem auto 0; border-top: 1px dashed rgba(223, 177, 99, 0.3); padding-top: 3rem; }
+        .silo-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+        .silo-link { display: flex; justify-content: space-between; align-items: center; text-decoration: none; padding: 1rem 1.5rem; border: 1px solid transparent; border-radius: 4px; transition: all 0.3s; background: rgba(20,20,20,0.3); }
+        .silo-link:hover { border-color: var(--border-subtle); background: rgba(30,30,30,0.5); transform: translateX(5px); }
+        .silo-title { color: white; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.02em; }
+        .silo-link:hover .silo-title { color: var(--accent-gold); }
+        .silo-meta { color: var(--accent-gold); font-family: monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        /* THE INVESTOR PORTAL (VIP CTA) */
+        .investor-portal-box { background: linear-gradient(135deg, rgba(20,20,20,0.8) 0%, rgba(5,5,5,0.9) 100%); border: 1px solid var(--accent-gold); padding: 4.5rem 3rem; border-radius: 8px; text-align: center; max-width: 1000px; margin: 4rem auto; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(223,177,99,0.05); }
+        .investor-portal-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-gold), transparent); }
+        .portal-btn { display: inline-flex; align-items: center; gap: 1rem; background: transparent; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 1.2rem 2.5rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border-radius: 4px; margin-top: 2.5rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .portal-btn:hover { background: var(--accent-gold); color: #050505; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(223,177,99,0.25); }
 
         .tags-wrapper { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
         .tag-pill { border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
@@ -172,7 +188,9 @@
           "isPartOf": {"@id": "https://domainklien.com/#website"},
           "relatedLink": [
             "https://dongkrakusaha.com/tren-apresiasi-modal-properti-kuta-selatan",
-            "https://dongkrakusaha.com/jarak-15-menit-bandara-investasi-resor"
+            "https://dongkrakusaha.com/jarak-15-menit-bandara-investasi-resor",
+            "https://dongkrakusaha.com/keamanan-hukum-wna-bali",
+            "https://dongkrakusaha.com/scarcity-effect-lahan-kuta-selatan"
           ]
         },
         {
@@ -383,14 +401,12 @@
                 <span class="testi-author">A. Wijaya</span>
                 <span class="testi-role">Private Equity Partner, Singapore</span>
             </div>
-
             <div class="testimonial-card">
                 <span class="quote-icon">"</span>
                 <p class="testi-text">Satu-satunya entitas di Bali yang benar-benar memahami makna dari *absolute discretion* dan manajemen aset skala *ultra-luxury*. Panduan regulasi PT PMA mereka sangat tanpa celah.</p>
                 <span class="testi-author">R. Hartanto</span>
                 <span class="testi-role">Tech Founder, Jakarta</span>
             </div>
-
             <div class="testimonial-card">
                 <span class="quote-icon">"</span>
                 <p class="testi-text">Kurasi lokasi tebing yang luar biasa. Pendekatan arsitektur mereka tidak hanya mengoptimalkan tata ruang, tetapi secara langsung memancing *Capital Gain* yang luar biasa.</p>
@@ -427,6 +443,24 @@
             </details>
         </div>
 
+        <div class="silo-briefing">
+            <span class="tracking-widest" style="font-size: 0.7rem; color: var(--accent-gold); display: block; margin-bottom: 0.5rem; font-weight: bold; letter-spacing: 0.2em;">Intelligence Briefing</span>
+            <div class="silo-list">
+                <a href="https://dongkrakusaha.com/tren-apresiasi-modal-properti-kuta-selatan" class="silo-link" rel="dofollow">
+                    <span class="silo-title">01 / Analisis Makro: Tren Apresiasi Modal Properti Kuta Selatan</span>
+                    <span class="silo-meta">Read Analysis &rarr;</span>
+                </a>
+                <a href="https://dongkrakusaha.com/jarak-15-menit-bandara-investasi-resor" class="silo-link" rel="dofollow">
+                    <span class="silo-title">02 / Koridor Finansial: Dampak Proksimitas Bandara Terhadap Nilai Resor</span>
+                    <span class="silo-meta">Read Briefing &rarr;</span>
+                </a>
+                <a href="https://dongkrakusaha.com/keamanan-hukum-wna-bali" class="silo-link" rel="dofollow">
+                    <span class="silo-title">03 / Kerangka Regulasi: Protokol Amankan Aset Properti Asing Lewat PT PMA</span>
+                    <span class="silo-meta">Read Protocol &rarr;</span>
+                </a>
+            </div>
+        </div>
+
         <div class="tags-wrapper">
             <a href="#" class="tag-pill">Investasi Villa Kuta Selatan</a>
             <a href="#" class="tag-pill">Harga Tanah Tebing Bali</a>
@@ -436,12 +470,31 @@
         </div>
     </section>
 
-    <footer style="padding: 4rem 2rem 6rem; border-top: 1px solid var(--border-subtle); text-align: center; position: relative;">
-        <h2 class="font-display" style="font-size: clamp(3rem, 6vw, 5rem); color: white; line-height: 1; margin-bottom: 1.5rem;">
-            Build <span class="font-serif" style="color: var(--accent-gold);">Legacy.</span>
+    <section class="container lazy-section">
+        <div class="investor-portal-box">
+            <span class="tracking-widest" style="font-size: 0.75rem; color: var(--accent-gold); display: block; margin-bottom: 1rem; font-weight: bold;">Institutional Access Only</span>
+            <h2 class="font-display" style="font-size: clamp(2rem, 5vw, 3.5rem); color: white; line-height: 1.2; margin-bottom: 1rem;">
+                Akses Portofolio <br><span class="font-serif" style="color: var(--accent-gold);">Pasar Tertutup.</span>
+            </h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.05rem; font-weight: 300;">
+                Masuk ke dalam lingkaran utama. Dapatkan dokumen privasi, data transaksional *off-market*, dan alokasi prioritas untuk lahan pesisir Kuta Selatan sebelum rilis publik.
+            </p>
+            <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20ingin%20meminta%20akses%20ke%20Private%20Dossier%20Southkuta%20Estates." class="portal-btn">
+                Request Private Dossier
+            </a>
+        </div>
+    </section>
+
+    <footer style="padding: 6rem 2rem 4rem; border-top: 1px solid var(--border-subtle); text-align: center; position: relative; background: rgba(3,3,3,0.8); backdrop-filter: blur(10px);">
+        <h2 class="font-display" style="font-size: clamp(2.5rem, 5vw, 4rem); color: white; line-height: 1; margin-bottom: 1.5rem;">
+            Command Scarcity. <br><span class="font-serif" style="color: var(--accent-gold);">Preserve Wealth.</span>
         </h2>
-        <p style="color: var(--text-main); font-size: 1rem; margin-bottom: 3rem; font-weight: bold; letter-spacing: 0.05em;">contact@domainklien.com &bull; Protected by TITAN Architecture</p>
-        <span class="tracking-widest" style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">© 2026 Boutique Property South Bali</span>
+        <p style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 3rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">
+            advisory@southkuta-estates.com &bull; Confidentiality Assured &bull; Secured by TITAN Sovereign Architecture
+        </p>
+        <span class="tracking-widest" style="font-size: 0.7rem; color: rgba(255,255,255,0.3); font-weight: 600;">
+            &copy; 2026 SOUTHKUTA ESTATES &bull; BOUTIQUE REAL ESTATE ADVISORY BALI
+        </span>
     </footer>
 
     <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20melihat%20portofolio%20Timeless%20Assets%20Kuta%20Selatan." class="btn-wa" target="_blank">
