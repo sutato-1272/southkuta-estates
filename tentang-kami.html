@@ -8,70 +8,63 @@
     <meta name="robots" content="index, follow">
     
     <style>
-        /* FASE 1: CSS ZERO-BLOAT (AUTHORITY CENTER) */
-        :root {
-            --bg-dark: #050505; 
-            --bg-card: rgba(15, 15, 15, 0.4);
-            --text-main: #ffffff; 
-            --text-muted: #a8a29e; 
-            --accent-gold: #DFB163; 
-            --border-subtle: rgba(223, 177, 99, 0.2); 
-            --wa-green: #25D366;
-        }
-        
+        /* FASE 1: CSS ZERO-BLOAT (ROYAL BLACK & GOLD) */
+        :root { --bg-dark: #050505; --bg-card: rgba(15, 15, 15, 0.4); --text-main: #ffffff; --text-muted: #a8a29e; --accent-gold: #DFB163; --border-subtle: rgba(223, 177, 99, 0.2); --wa-green: #25D366; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.7; overflow-x: hidden; }
         
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
         .font-display { font-weight: 800; letter-spacing: -0.03em; }
         .font-serif { font-family: "Didot", "Bodoni MT", ui-serif, Georgia, serif; font-style: italic; font-weight: normal; }
         .tracking-widest { letter-spacing: 0.25em; text-transform: uppercase; }
 
-        /* Background Animasi Fluid & Moving Grid */
+        /* Background */
         .bg-fluid { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-dark); overflow: hidden; }
         .bg-fluid::before, .bg-fluid::after { content: ''; position: absolute; width: 150vw; height: 150vw; top: -25vw; left: -25vw; filter: blur(100px); opacity: 0.6; transform-origin: center; animation: spin 30s linear infinite; }
         .bg-fluid::before { background: conic-gradient(from 0deg at 50% 50%, transparent 0%, rgba(223, 177, 99, 0.2) 25%, transparent 50%, rgba(30, 40, 60, 0.5) 75%, transparent 100%); }
         @keyframes spin { 100% { transform: rotate(360deg); } }
-
         .moving-lines { position: fixed; top: 0; left: 0; width: 100vw; height: 120vh; z-index: -1; background-image: linear-gradient(rgba(223, 177, 99, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(223, 177, 99, 0.05) 1px, transparent 1px); background-size: 80px 80px; animation: gridMove 25s linear infinite; pointer-events: none; mask-image: radial-gradient(circle at center, black 20%, transparent 90%); -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 90%); }
         @keyframes gridMove { 0% { transform: translateY(-80px); } 100% { transform: translateY(0); } }
 
-        /* Konten Halaman */
-        .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; position: relative; z-index: 10; }
-        
-        .nav-back { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent-gold); text-decoration: none; margin-bottom: 3rem; font-size: 0.85rem; font-weight: bold; border: 1px solid var(--border-subtle); padding: 0.5rem 1.5rem; border-radius: 50px; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); transition: all 0.3s; }
-        .nav-back:hover { background: var(--accent-gold); color: black; }
-        
+        /* Navigasi */
+        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 50; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(223,177,99,0.1); background: rgba(5,5,5,0.6); }
+        .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.1em; color: var(--accent-gold); text-decoration: none; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent-gold); }
+        @media (max-width: 768px) { body { padding-bottom: 120px; } nav { flex-direction: column; gap: 1rem; padding: 1rem; } .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; } .nav-links a { font-size: 0.65rem; } }
+
+        /* Layout & Typo */
+        .container { max-width: 1000px; margin: 0 auto; padding: 8rem 2rem 4rem; position: relative; z-index: 10; }
         h1 { font-size: clamp(3rem, 6vw, 5rem); line-height: 1; margin-bottom: 1.5rem; text-shadow: 0 5px 15px rgba(0,0,0,0.8); }
         h2 { font-size: 2.2rem; color: white; margin-top: 4rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; font-weight: 300; }
         p { margin-bottom: 1.5rem; font-size: 1.15rem; color: var(--text-muted); font-weight: 300; line-height: 1.8; }
-        
         .hero-img { width: 100%; height: 60vh; object-fit: cover; border-radius: 8px; margin-bottom: 4rem; border: 1px solid var(--border-subtle); box-shadow: 0 10px 40px rgba(0,0,0,0.6); filter: brightness(0.85); }
         
-        /* Two-Column Philosophy Layout */
         .philosophy-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 4rem; }
         @media (min-width: 768px) { .philosophy-grid { grid-template-columns: 1fr 1.5fr; } }
         .philosophy-title h3 { font-size: 2rem; color: white; line-height: 1.2; font-weight: 400; }
         
-        /* Stats Bento (Otoritas Visual) */
         .bento-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; margin-bottom: 4rem; }
         @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(3, 1fr); } }
         .bento-box { background: rgba(20,20,20,0.6); backdrop-filter: blur(15px); border: 1px solid var(--border-subtle); padding: 3rem 2rem; border-radius: 6px; text-align: center; transition: all 0.4s ease; box-shadow: inset 0 0 30px rgba(0,0,0,0.5); }
-        .bento-box:hover { border-color: var(--accent-gold); background: rgba(30,30,30,0.5); transform: translateY(-5px); }
         .stat-number { display: block; font-size: 3.5rem; font-weight: 300; color: var(--accent-gold); line-height: 1; margin-bottom: 0.5rem; font-family: "Didot", "Bodoni MT", serif; }
         .stat-label { font-size: 0.8rem; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-weight: bold; }
 
-        /* Visi Misi List */
         .vision-list { list-style: none; border-left: 2px solid var(--border-subtle); padding-left: 2rem; margin-left: 1rem; }
         .vision-list li { margin-bottom: 2rem; position: relative; }
         .vision-list li::before { content: ''; position: absolute; left: -2.45rem; top: 0.5rem; width: 12px; height: 12px; background: var(--bg-dark); border: 2px solid var(--accent-gold); border-radius: 50%; box-shadow: 0 0 10px var(--accent-gold); }
         .vision-list h4 { color: white; font-size: 1.3rem; margin-bottom: 0.5rem; }
+
+        /* ADVISORY BOARD (MEET THE TEAM) */
+        .team-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
+        @media (min-width: 768px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+        .team-card { background: rgba(15,15,15,0.4); border: 1px solid var(--border-subtle); border-radius: 6px; overflow: hidden; transition: transform 0.4s; }
+        .team-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+        .team-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: grayscale(80%) contrast(1.1); transition: filter 0.4s; border-bottom: 1px solid rgba(223,177,99,0.2); }
+        .team-card:hover .team-img { filter: grayscale(0%); }
+        .team-info { padding: 1.5rem; text-align: center; }
+        .team-name { font-family: "Didot", serif; font-size: 1.5rem; color: white; margin-bottom: 0.3rem; }
+        .team-role { font-size: 0.75rem; color: var(--accent-gold); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 1rem; }
 
         .btn-wa { position: fixed; bottom: 30px; right: 30px; background: var(--wa-green); color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.3); animation: pulse 2s infinite; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px); }
         @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 15px transparent; } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 transparent; } }
@@ -85,24 +78,8 @@
         "@type": "RealEstateAgent",
         "@id": "https://domainklien.com/#organization",
         "name": "Boutique Property South Bali",
-        "description": "Firma kurasi aset properti ultra-mewah dan lahan premium pesisir Kuta Selatan, Bali.",
-        "foundingDate": "1998",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kuta Selatan",
-          "addressRegion": "Bali",
-          "addressCountry": "ID"
-        }
-      },
-      "relatedLink": [
-        "https://dongkrakusaha.com/tren-apresiasi-modal-properti-kuta-selatan",
-        "https://dongkrakusaha.com/jarak-15-menit-bandara-investasi-resor",
-        "https://dongkrakusaha.com/vila-pinggir-tebing-bali",
-        "https://dongkrakusaha.com/sustainable-luxury-living-ekspatriat",
-        "https://dongkrakusaha.com/tech-hub-bali-selatan",
-        "https://dongkrakusaha.com/scarcity-effect-lahan-kuta-selatan",
-        "https://dongkrakusaha.com/komparasi-roi-residensial-komersial"
-      ]
+        "description": "Firma kurasi aset properti ultra-mewah dan lahan premium pesisir Kuta Selatan, Bali."
+      }
     }
     </script>
 </head>
@@ -111,14 +88,22 @@
     <div class="bg-fluid"></div>
     <div class="moving-lines"></div>
 
-    <div class="container">
-        <a href="/" class="nav-back tracking-widest">&larr; Portfolio Utama</a>
+    <nav>
+        <a href="/" class="logo">SOUTHKUTA ESTATES</a>
+        <div class="nav-links">
+            <a href="/">Portfolio</a>
+            <a href="/tentang-kami.html" style="color: var(--accent-gold);">Tentang Kami</a>
+            <a href="/layanan.html">Layanan</a>
+            <a href="/kontak.html">Kontak</a>
+        </div>
+    </nav>
 
-        <div style="margin-bottom: 2rem;">
+    <div class="container">
+        <div style="margin-bottom: 2rem; text-align: center;">
             <span class="tracking-widest" style="font-size: 0.75rem; color: var(--accent-gold); display: inline-block; border: 1px solid var(--border-subtle); padding: 0.3rem 1rem; border-radius: 50px;">The Authority Board</span>
         </div>
 
-        <h1 class="font-display">
+        <h1 class="font-display" style="text-align: center;">
             Integritas <br>
             <span class="font-serif" style="color: var(--accent-gold);">Spasial.</span>
         </h1>
@@ -133,7 +118,7 @@
             </div>
             <div>
                 <p>Di era abstraksi digital, nilai nyata dari real estat yang diposisikan dengan tepat tetap menjadi fondasi pelestarian kekayaan lintas generasi. Kami beroperasi di persimpangan antara finansial tingkat tinggi dan desain kelas dunia.</p>
-                <p>Southkuta Estates dibentuk oleh konsorsium mantan bankir investasi, arsitek pemenang penghargaan, dan perencana tata kota. Pendekatan multidisiplin ini memungkinkan kami melihat *Capital Gain* di lokasi di mana orang lain hanya melihat tebing pesisir.</p>
+                <p>Southkuta Estates dibentuk oleh konsorsium ahli strategi investasi, arsitek pemenang penghargaan, dan negosiator lahan pesisir. Pendekatan ini memungkinkan kami melihat *Capital Gain* di lokasi di mana orang lain hanya melihat tebing pesisir.</p>
             </div>
         </div>
 
@@ -153,31 +138,66 @@
         </div>
 
         <h2 class="font-display">Stewardship <span class="font-serif" style="color: var(--accent-gold);">Misi Kami</span></h2>
-        
         <ul class="vision-list">
             <li>
                 <h4 class="font-display">Presisi Analitik (The Alpha)</h4>
-                <p>Kami memetakan tren pergerakan ekspatriat dan regulasi zonasi pesisir Kuta Selatan untuk mengidentifikasi aset yang diremehkan (undervalued) sebelum terserap oleh pasar massal.</p>
+                <p>Kami memetakan tren pergerakan modal dan regulasi zonasi pesisir Kuta Selatan untuk mengidentifikasi aset yang diremehkan (undervalued) sebelum terserap oleh pasar massal.</p>
             </li>
             <li>
                 <h4 class="font-display">Intervensi Arsitektur</h4>
-                <p>Membuka potensi sesungguhnya dari sebuah lahan strategis melalui desain *masterplan* yang agresif, harmonis secara ekologis, dan dioptimalkan untuk memancing *High-Yield*.</p>
+                <p>Membuka potensi sesungguhnya dari sebuah lahan strategis melalui desain *masterplan* yang harmonis secara ekologis dan dioptimalkan untuk memancing *High-Yield*.</p>
             </li>
             <li>
                 <h4 class="font-display">Eksekusi Tertutup (Off-Market)</h4>
-                <p>Menjaga eksklusivitas tingkat tertinggi. Sebagian besar transaksi dan akuisisi lahan kami dilakukan secara senyap untuk melindungi identitas dan privasi absolut investor kami.</p>
+                <p>Menjaga eksklusivitas tingkat tertinggi. Sebagian besar transaksi kami dilakukan secara senyap untuk melindungi privasi absolut investor kami.</p>
             </li>
         </ul>
 
+        <h2 class="font-display" style="margin-top: 6rem;">The Advisory <span class="font-serif" style="color: var(--accent-gold);">Board</span></h2>
+        <p>Arah strategis dan akuisisi aset kami dipimpin oleh konsorsium ahli dengan rekam jejak tanpa kompromi di pasar *ultra-luxury* Bali.</p>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Managing Partner" class="team-img" loading="lazy">
+                <div class="team-info">
+                    <h4 class="team-name">A. Dananjaya</h4>
+                    <span class="team-role">Managing Partner</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Head of Legal & Zoning" class="team-img" loading="lazy">
+                <div class="team-info">
+                    <h4 class="team-name">S. Paramitha</h4>
+                    <span class="team-role">Head of Legal Compliance</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Lead Architect" class="team-img" loading="lazy">
+                <div class="team-info">
+                    <h4 class="team-name">M. Sutato</h4>
+                    <span class="team-role">Chief Spatial Architect</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <footer style="padding: 4rem 2rem; border-top: 1px solid var(--border-subtle); text-align: center; position: relative;">
-        <span class="tracking-widest" style="font-size: 0.75rem; color: rgba(255,255,255,0.4);">© 2026 Boutique Property South Bali &bull; Protected by TITAN Architecture</span>
+    <footer style="padding: 6rem 2rem 2rem; border-top: 1px solid var(--border-subtle); text-align: center; position: relative; background: rgba(3,3,3,0.8); backdrop-filter: blur(10px);">
+        <h2 class="font-display" style="font-size: clamp(2.5rem, 5vw, 4rem); color: white; line-height: 1; margin-bottom: 1.5rem;">
+            Command Scarcity. <br><span class="font-serif" style="color: var(--accent-gold);">Preserve Wealth.</span>
+        </h2>
+        <p style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 3rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">
+            advisory@southkuta-estates.com &bull; Confidentiality Assured &bull; Secured by TITAN Sovereign Architecture
+        </p>
+        <div style="margin-top: 4rem; border-top: 1px dashed rgba(255,255,255,0.05); padding-top: 2rem;">
+            <p style="color: #475569; font-size: 0.9rem; margin-bottom: 0.3rem;">&copy; 2026 Boutique Property South Bali. All Rights Reserved.</p>
+            <p style="color: #334155; font-size: 0.85rem; margin: 0; font-weight: 400;">
+                SEO & Web Development by <a href="https://ciledugpromo.biz.id/" target="_blank" rel="nofollow noopener noreferrer" style="color: #334155; font-weight: bold; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#DFB163'" onmouseout="this.style.color='#334155'">CiledugPromo</a>
+            </p>
+        </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20tertarik%20dengan%20layanan%20akuisisi%20lahan%20premium%20Boutique%20Property." class="btn-wa" target="_blank">
-        Konsultasi Akuisisi
+    <a href="https://api.whatsapp.com/send?phone=6285283212205&text=Halo,%20saya%20tertarik%20berdiskusi%20dengan%20Principal%20Southkuta%20Estates." class="btn-wa" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg> Enquiry
     </a>
-
 </body>
 </html>
