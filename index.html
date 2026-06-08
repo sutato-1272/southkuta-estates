@@ -8,7 +8,7 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     
     <style>
-        /* FASE 1: CSS ZERO-BLOAT (ROYAL BLACK & GOLD - FULL NAV) */
+        /* FASE 1: CSS ZERO-BLOAT (ROYAL BLACK & GOLD) */
         :root {
             --bg-dark: #050505; 
             --bg-card: rgba(15, 15, 15, 0.4);
@@ -29,12 +29,10 @@
             overflow-x: hidden;
         }
 
-        /* Tipografi Ultra-Premium */
         .font-display { font-weight: 800; letter-spacing: -0.03em; }
         .font-serif { font-family: "Didot", "Bodoni MT", "Palatino Linotype", "Cinzel", ui-serif, Georgia, serif; font-style: italic; font-weight: normal; letter-spacing: 0.02em; }
         .tracking-widest { letter-spacing: 0.25em; text-transform: uppercase; }
 
-        /* PURE CSS BACKGROUND ANIMATION */
         .bg-fluid { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-dark); overflow: hidden; }
         .bg-fluid::before, .bg-fluid::after { 
             content: ''; position: absolute; width: 150vw; height: 150vw; top: -25vw; left: -25vw; 
@@ -45,7 +43,6 @@
         .bg-fluid::after { animation-direction: reverse; animation-duration: 35s; background: conic-gradient(from 180deg at 50% 50%, transparent 0%, rgba(20, 20, 25, 0.7) 25%, transparent 50%, rgba(223, 177, 99, 0.25) 75%, transparent 100%); }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* MOVING ARCHITECTURE GRID */
         .moving-lines { 
             position: fixed; top: 0; left: 0; width: 100vw; height: 120vh; z-index: -1; 
             background-image: linear-gradient(rgba(223, 177, 99, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(223, 177, 99, 0.1) 1px, transparent 1px); 
@@ -59,10 +56,8 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 10; }
         .py-24 { padding-top: 7rem; padding-bottom: 7rem; }
 
-        /* MENU NAVIGASI GLOBAL DENGAN OPSI LAYANAN AKTIF */
         nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 50; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(223,177,99,0.1); background: rgba(5,5,5,0.6); }
         .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.1em; color: var(--accent-gold); text-decoration: none; }
-        
         .nav-links { display: flex; gap: 2.5rem; align-items: center; }
         .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent-gold); }
@@ -73,7 +68,6 @@
             .nav-links a { font-size: 0.7rem; }
         }
 
-        /* Hero Section */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; border-bottom: 1px solid var(--border-subtle); }
         .status-badge { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; color: var(--accent-gold); margin-bottom: 2rem; font-weight: bold; border: 1px solid var(--border-subtle); padding: 0.5rem 1rem; border-radius: 50px; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         .pulse-dot { width: 6px; height: 6px; background-color: var(--accent-gold); border-radius: 50%; animation: pulse-opacity 2s infinite; box-shadow: 0 0 8px var(--accent-gold); }
@@ -82,13 +76,11 @@
 
         @keyframes pulse-opacity { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        /* Infinite Marquee */
         .marquee-wrapper { border-bottom: 1px solid var(--border-subtle); padding: 1.2rem 0; overflow: hidden; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); }
         .marquee-content { display: inline-block; white-space: nowrap; animation: marquee 35s linear infinite; font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; }
         .marquee-content span { margin: 0 3.5rem; opacity: 0.9; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* Glassmorphism Cards */
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 4rem; }
         @media (min-width: 1024px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
         
@@ -107,7 +99,6 @@
         .arrow-btn { width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); transition: all 0.4s; font-size: 1.2rem; }
         .project-card:hover .arrow-btn { background: var(--accent-gold); color: black; transform: rotate(45deg); }
 
-        /* Bento Grid */
         .bento-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 4rem; }
         @media (min-width: 768px) { .bento-grid { grid-template-columns: repeat(4, 1fr); } }
         .bento-box { background: var(--bg-card); backdrop-filter: blur(15px); border: 1px solid var(--border-subtle); padding: 3rem 2rem; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: all 0.4s ease; box-shadow: inset 0 0 30px rgba(0,0,0,0.5); }
@@ -121,7 +112,22 @@
         .stat-number { font-size: 3.5rem; font-weight: 300; color: var(--accent-gold); line-height: 1; margin-bottom: 0.8rem; text-shadow: 0 0 25px rgba(223, 177, 99, 0.5); font-family: "Didot", "Bodoni MT", serif; }
         .stat-label { font-size: 0.75rem; color: white; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; opacity: 0.9; }
 
-        /* Sticky WA */
+        /* NATIVE CSS ACCORDION FAQ (SOP LSI INJECTION) */
+        .faq-section { max-width: 900px; margin: 0 auto; }
+        details { border-bottom: 1px solid var(--border-subtle); padding: 1.5rem 0; cursor: pointer; transition: all 0.3s ease; }
+        details:hover summary { color: var(--accent-gold); }
+        summary { font-size: 1.2rem; font-weight: 600; color: white; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; color: var(--accent-gold); font-size: 1.5rem; transition: transform 0.3s; font-family: monospace; }
+        details[open] summary::after { content: '-'; transform: rotate(180deg); }
+        .faq-answer { padding-top: 1rem; color: var(--text-muted); line-height: 1.7; font-size: 1rem; font-weight: 400; animation: fadeInDown 0.3s ease-in-out; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* LSI TAGS PILL */
+        .tags-wrapper { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+        .tag-pill { border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
+        .tag-pill:hover { border-color: var(--accent-gold); color: var(--accent-gold); background: rgba(223, 177, 99, 0.1); transform: translateY(-2px); }
+
         .btn-wa { position: fixed; bottom: 30px; right: 30px; background: var(--wa-green); color: white; padding: 1rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.3); animation: pulse 2s infinite; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px); }
         @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 15px transparent; } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 transparent; } }
 
@@ -148,6 +154,35 @@
           "relatedLink": [
             "https://dongkrakusaha.com/tren-apresiasi-modal-properti-kuta-selatan",
             "https://dongkrakusaha.com/jarak-15-menit-bandara-investasi-resor"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Mengapa Kuta Selatan menjadi lokasi investasi properti premium di Bali?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kuta Selatan menawarkan kelangkaan lanskap (scarcity) tebing pesisir, jarak hanya 15 menit dari bandara internasional, dan merupakan zona utama pengembangan resor ultra-mewah dengan potensi Capital Gain tertinggi."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah Ekspatriat atau WNA bisa membeli properti di Bali?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ya, kami menyediakan layanan legalitas end-to-end, termasuk pendirian badan usaha PT PMA untuk struktur Hak Pakai atau Hak Guna Bangunan (HGB) yang 100% aman dan sah secara hukum."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Berapa rata-rata potensi Rental Yield untuk kelas villa mewah?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Properti yang diposisikan dan dikelola dengan baik di Kuta Selatan secara historis menawarkan return investasi (ROI) yang sangat kompetitif, jauh di atas rata-rata investasi konvensional."
+              }
+            }
           ]
         }
       ]
@@ -286,7 +321,43 @@
         </div>
     </section>
 
-    <footer style="padding: 6rem 2rem 4rem; border-top: 1px solid var(--border-subtle); text-align: center; position: relative;">
+    <section class="py-24 container lazy-section" style="border-top: 1px solid var(--border-subtle);">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 class="font-display" style="font-size: clamp(2rem, 4vw, 3rem); color: white;">Insight <span class="font-serif" style="color: var(--accent-gold);">Investasi.</span></h2>
+            <p style="color: var(--text-muted); font-size: 1rem;">Pertanyaan fundamental seputar manajemen aset properti di Bali.</p>
+        </div>
+
+        <div class="faq-section">
+            <details>
+                <summary>Mengapa Kuta Selatan menjadi lokasi investasi properti premium di Bali?</summary>
+                <div class="faq-answer">
+                    Kuta Selatan menawarkan kelangkaan lanskap (*scarcity*) tebing pesisir yang tidak dapat diduplikasi. Berjarak hanya 15 menit dari bandara internasional, koridor ini telah ditetapkan sebagai zona utama pengembangan resor ultra-mewah, memberikan garansi pelestarian kekayaan dan apresiasi modal (*Capital Gain*) tertinggi.
+                </div>
+            </details>
+            <details>
+                <summary>Apakah Ekspatriat atau WNA bisa membeli properti di Bali secara legal?</summary>
+                <div class="faq-answer">
+                    Ya, proses akuisisi aset bagi Warga Negara Asing dapat dilakukan dengan kepatuhan hukum 100%. Kami memfasilitasi perlindungan hukum *end-to-end*, termasuk pendirian struktur PT PMA (Penanaman Modal Asing) untuk skema kepemilikan Hak Guna Bangunan (HGB) atau Hak Pakai yang diakui sah oleh negara.
+                </div>
+            </details>
+            <details>
+                <summary>Berapa rata-rata potensi Rental Yield untuk kelas villa mewah di area ini?</summary>
+                <div class="faq-answer">
+                    Berdasarkan analitik pasar *hospitality* premium, properti yang diposisikan secara strategis di area pesisir Kuta Selatan secara historis mampu mencetak *Return on Investment* (ROI) yang agresif, didorong oleh tingginya permintaan dari demografi *High Net-Worth* global dan komunitas ekspatriat *tech-hub*.
+                </div>
+            </details>
+        </div>
+
+        <div class="tags-wrapper">
+            <a href="#" class="tag-pill">Investasi Villa Kuta Selatan</a>
+            <a href="#" class="tag-pill">Harga Tanah Tebing Bali</a>
+            <a href="#" class="tag-pill">Konsultan Real Estat Ekspatriat</a>
+            <a href="#" class="tag-pill">Jasa Pembuatan PT PMA Properti</a>
+            <a href="#" class="tag-pill">Proyek Resor Mewah Jimbaran</a>
+        </div>
+    </section>
+
+    <footer style="padding: 4rem 2rem 6rem; border-top: 1px solid var(--border-subtle); text-align: center; position: relative;">
         <h2 class="font-display" style="font-size: clamp(3rem, 6vw, 5rem); color: white; line-height: 1; margin-bottom: 1.5rem;">
             Build <span class="font-serif" style="color: var(--accent-gold);">Legacy.</span>
         </h2>
